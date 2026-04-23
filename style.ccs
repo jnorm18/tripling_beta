@@ -1,0 +1,109 @@
+:root {
+  --text: #13212b;
+  --muted: #5d6a73;
+  --border: #d9dee2;
+  --bg: #ffffff;
+  --accent: #002430;
+  --maxw: 760px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  line-height: 1.65;
+}
+
+.page {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 48px 20px 72px;
+}
+
+.hero {
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0 0 10px;
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  line-height: 1.1;
+  color: var(--accent);
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 680px;
+}
+
+h2 {
+  margin: 0 0 8px;
+  font-size: 1.3rem;
+  line-height: 1.25;
+  color: var(--accent);
+}
+
+.prose {
+  margin: 28px 0;
+}
+
+.prose p {
+  margin: 0 0 16px;
+  font-size: 1rem;
+}
+
+.chart-block {
+  margin: 40px 0 48px;
+}
+
+.chart-note {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.embed-shell {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  background: #fff;
+}
+
+.placeholder {
+  min-height: 280px;
+  display: grid;
+  place-items: center;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 20px;
+}
+
+img,
+iframe,
+svg {
+  max-width: 100%;
+  display: block;
+}
