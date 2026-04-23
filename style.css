@@ -94,7 +94,34 @@ h2 {
   border-radius: 16px;
   background: #fff;
   padding: 14px;
-  overflow: hidden;
+}
+
+/* Use this for Flourish scrolly/story embeds instead of figure-shell */
+.flourish-block {
+  margin: 34px 0 42px;
+}
+
+.flourish-wrap {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+/* Let Flourish control the embed */
+.flourish-embed {
+  width: 100%;
+  margin: 0;
+  overflow: visible !important;
+}
+
+/* Keep normal media responsive, but avoid over-controlling all embeds */
+img {
+  max-width: 100%;
+  display: block;
 }
 
 .placeholder-shell {
@@ -114,16 +141,6 @@ h2 {
   padding: 24px;
 }
 
-.flourish-embed,
-.flourish-embed iframe,
-img,
-svg,
-iframe {
-  width: 100%;
-  max-width: 100%;
-  display: block;
-}
-
 @media (max-width: 640px) {
   .page {
     padding: 28px 16px 56px;
@@ -137,6 +154,7 @@ iframe {
     margin-bottom: 26px;
   }
 
+  .flourish-block,
   .figure-block {
     margin: 28px 0 34px;
   }
