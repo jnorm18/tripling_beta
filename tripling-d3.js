@@ -60,18 +60,18 @@
   const LIGHT_TEXT = "#e0f2e9";
   const FONT = '"Plus Jakarta Sans", sans-serif';
 
-  const W = 760;
-  const COL_X = [28, 175, 330, 500];
+const W = 760;
+const COL_X = [20, 165, 320, 485];
 
-  const maxTriplingTotal = d3.max(Object.values(data), d =>
-    d.construction.total + d.preConstruction.total + d.announced.total + d.triplingGap
-  );
+const maxTriplingTotal = d3.max(Object.values(data), d =>
+  d.construction.total + d.preConstruction.total + d.announced.total + d.triplingGap
+);
 
-  const SCALE_K = 240 / Math.sqrt(maxTriplingTotal);
+const SCALE_K = 240 / Math.sqrt(maxTriplingTotal);
 
-  function gw2side(gw) {
-    return Math.sqrt(gw) * SCALE_K;
-  }
+function gw2side(gw) {
+  return Math.sqrt(gw) * SCALE_K;
+}
 
   function populateSelect() {
     select.innerHTML = "";
@@ -98,14 +98,15 @@
     const combinedOperating = categories.reduce((s, c) => s + c.d.operating, 0);
     const triplingTotal = combinedTotal + d.triplingGap;
 
-    const tripSide = gw2side(triplingTotal);
-    const combinedOuterSide = gw2side(combinedTotal);
+const tripSide = gw2side(triplingTotal);
+const combinedOuterSide = gw2side(combinedTotal);
+const maxTripSide = gw2side(maxTriplingTotal);
 
-    const TOP_BAND = 38;
-    const GAP_ABOVE_BOX = 16;
-    const BASELINE_Y = TOP_BAND + GAP_ABOVE_BOX + tripSide;
-    const BOTTOM_BAND = 84;
-    const H = BASELINE_Y + BOTTOM_BAND;
+const TOP_BAND = 38;
+const GAP_ABOVE_BOX = 16;
+const BASELINE_Y = TOP_BAND + GAP_ABOVE_BOX + maxTripSide;
+const BOTTOM_BAND = 84;
+const H = BASELINE_Y + BOTTOM_BAND;
 
     const svg = d3.select(mount)
       .append("svg")
