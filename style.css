@@ -145,10 +145,10 @@ img {
 
 .d3-card {
   width: 100%;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  background: #fff;
-  padding: 18px 18px 14px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
 }
 
 .d3-chart-header {
@@ -230,9 +230,9 @@ img {
     border-radius: 14px;
   }
 
-  .d3-card {
-    padding: 14px 12px 10px;
-  }
+.d3-card {
+  padding: 0;
+}
 
   .d3-chart-title {
     font-size: 14px;
