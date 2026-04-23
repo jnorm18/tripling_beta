@@ -96,7 +96,6 @@ h2 {
   padding: 14px;
 }
 
-/* Use this for Flourish scrolly/story embeds instead of figure-shell */
 .flourish-block {
   margin: 34px 0 42px;
 }
@@ -111,14 +110,12 @@ h2 {
   background: transparent;
 }
 
-/* Let Flourish control the embed */
 .flourish-embed {
   width: 100%;
   margin: 0;
   overflow: visible !important;
 }
 
-/* Keep normal media responsive, but avoid over-controlling all embeds */
 img {
   max-width: 100%;
   display: block;
@@ -141,6 +138,74 @@ img {
   padding: 24px;
 }
 
+/* D3 section */
+.d3-block {
+  margin: 38px 0 46px;
+}
+
+.d3-card {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #fff;
+  padding: 18px 18px 14px;
+}
+
+.d3-chart-header {
+  margin-bottom: 14px;
+}
+
+.d3-chart-title {
+  margin: 0 0 4px;
+  font-size: 15px;
+  line-height: 1.45;
+  font-weight: 700;
+  color: var(--accent);
+  max-width: 520px;
+}
+
+.d3-chart-subtitle {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.d3-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 14px;
+  flex-wrap: wrap;
+}
+
+.d3-controls label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.d3-controls select {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--text);
+}
+
+#renewable-d3-chart {
+  width: 100%;
+}
+
+#renewable-d3-chart svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 @media (max-width: 640px) {
   .page {
     padding: 28px 16px 56px;
@@ -155,13 +220,22 @@ img {
   }
 
   .flourish-block,
-  .figure-block {
+  .figure-block,
+  .d3-block {
     margin: 28px 0 34px;
   }
 
   .figure-shell {
     padding: 10px;
     border-radius: 14px;
+  }
+
+  .d3-card {
+    padding: 14px 12px 10px;
+  }
+
+  .d3-chart-title {
+    font-size: 14px;
   }
 
   .prose {
