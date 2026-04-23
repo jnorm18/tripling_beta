@@ -1,54 +1,13 @@
-(function () {
-  const data = {
-    "Global": {
-      construction:    { total: 542,  operating: 329 },
-      preConstruction: { total: 1993, operating: 698 },
-      announced:       { total: 1414, operating: 325 },
-      triplingGap: 6600
-    },
-
-    "Europe": {
-      construction:    { total: 210,  operating: 130 },
-      preConstruction: { total: 720,  operating: 260 },
-      announced:       { total: 510,  operating: 170 },
-      triplingGap: 2400
-    },
-
-    "Near target test": {
-      construction:    { total: 380,  operating: 240 },
-      preConstruction: { total: 980,  operating: 410 },
-      announced:       { total: 620,  operating: 180 },
-      triplingGap: 850
-    },
-
-    "Gap-heavy test": {
-      construction:    { total: 140,  operating: 90 },
-      preConstruction: { total: 280,  operating: 110 },
-      announced:       { total: 180,  operating: 40 },
-      triplingGap: 3200
-    },
-
-    "Pipeline-heavy test": {
-      construction:    { total: 460,  operating: 260 },
-      preConstruction: { total: 2400, operating: 760 },
-      announced:       { total: 1900, operating: 430 },
-      triplingGap: 1800
-    },
-
-    "Small system test": {
-      construction:    { total: 55,   operating: 35 },
-      preConstruction: { total: 120,  operating: 50 },
-      announced:       { total: 90,   operating: 18 },
-      triplingGap: 260
-    },
-
-    "Very large test": {
-      construction:    { total: 980,  operating: 620 },
-      preConstruction: { total: 3100, operating: 980 },
-      announced:       { total: 2300, operating: 540 },
-      triplingGap: 8200
+(async function () {
+  async function loadData() {
+    const response = await fetch("./tripling-d3-data.json");
+    if (!response.ok) {
+      throw new Error(`Could not load tripling-d3-data.json (${response.status})`);
     }
-  };
+    return await response.json();
+  }
+
+  const data = await loadData();
 
   const mount = document.getElementById("renewable-d3-chart");
   const select = document.getElementById("d3-country-select");
@@ -60,18 +19,18 @@
   const LIGHT_TEXT = "#e0f2e9";
   const FONT = '"Plus Jakarta Sans", sans-serif';
 
-const W = 760;
-const COL_X = [20, 165, 320, 485];
+  const W = 760;
+  const COL_X = [20, 165, 320, 485];
 
-const maxTriplingTotal = d3.max(Object.values(data), d =>
-  d.construction.total + d.preConstruction.total + d.announced.total + d.triplingGap
-);
+  const maxTriplingTotal = d3.max(Object.values(data), d =>
+    d.construction.total + d.preConstruction.total + d.announced.total + d.triplingGap
+  );
 
-const SCALE_K = 240 / Math.sqrt(maxTriplingTotal);
+  const SCALE_K = 240 / Math.sqrt(maxTriplingTotal);
 
-function gw2side(gw) {
-  return Math.sqrt(gw) * SCALE_K;
-}
+  function gw2side(gw) {
+    return Math.sqrt(gw) * SCALE_K;
+  }
 
   function populateSelect() {
     select.innerHTML = "";
@@ -81,7 +40,7 @@ function gw2side(gw) {
       option.textContent = name;
       select.appendChild(option);
     });
-    select.value = "Global";
+    select.value = Object.keys(data)[0];
   }
 
   function draw(countryName) {
@@ -89,24 +48,24 @@ function gw2side(gw) {
     const d = data[countryName];
 
     const categories = [
-      { label: "Construction",     x: COL_X[0], d: d.construction },
+      { label: "Construction", x: COL_X[0], d: d.construction },
       { label: "Pre-construction", x: COL_X[1], d: d.preConstruction },
-      { label: "Announced",        x: COL_X[2], d: d.announced }
+      { label: "Announced", x: COL_X[2], d: d.announced }
     ];
 
     const combinedTotal = categories.reduce((s, c) => s + c.d.total, 0);
     const combinedOperating = categories.reduce((s, c) => s + c.d.operating, 0);
     const triplingTotal = combinedTotal + d.triplingGap;
 
-const tripSide = gw2side(triplingTotal);
-const combinedOuterSide = gw2side(combinedTotal);
-const maxTripSide = gw2side(maxTriplingTotal);
+    const tripSide = gw2side(triplingTotal);
+    const combinedOuterSide = gw2side(combinedTotal);
+    const maxTripSide = gw2side(maxTriplingTotal);
 
-const TOP_BAND = 38;
-const GAP_ABOVE_BOX = 16;
-const BASELINE_Y = TOP_BAND + GAP_ABOVE_BOX + maxTripSide;
-const BOTTOM_BAND = 84;
-const H = BASELINE_Y + BOTTOM_BAND;
+    const TOP_BAND = 38;
+    const GAP_ABOVE_BOX = 16;
+    const BASELINE_Y = TOP_BAND + GAP_ABOVE_BOX + maxTripSide;
+    const BOTTOM_BAND = 84;
+    const H = BASELINE_Y + BOTTOM_BAND;
 
     const svg = d3.select(mount)
       .append("svg")
