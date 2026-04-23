@@ -7,69 +7,73 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="page">
+    <article class="article">
 
-    <header class="hero">
-      <h1>Tracking renewables tripling and fossil fuels phaseout</h1>
-      <p class="subtitle">
-        In 2023, at COP28, governments agreed to triple global renewable capacity by 2030.
-      </p>
-    </header>
+      <header class="article-header">
+        <h1>Tracking renewables tripling and fossil fuels phaseout</h1>
+        <p class="subtitle">
+          In 2023, at COP28, governments agreed to triple global renewable capacity by 2030.
+        </p>
+      </header>
 
-    <section class="prose">
-      <p>
-        This beta page brings together short text, embedded charts, and custom interactive graphics
-        to track progress toward the COP28 energy goals.
-      </p>
+      <section class="content-block prose">
+        <p>
+          Tripling renewables capacity to at least 11,000 GW by 2030 keeps a pathway for limiting global warming to 1.5C within reach, according to independent analyses from the International Renewable Energy Agency (IRENA) and the International Energy Agency (IEA).
+        </p>
 
-      <p>
-        It will evolve over time, but the basic structure is simple: a readable article-style layout
-        with visuals placed between short explanatory sections.
-      </p>
-    </section>
+        <p>
+          Tripling renewables is possibly the most powerful action the world can take within the next decade to transition away from fossil fuels, accounting for up to two-thirds of emissions reductions by 2050.
+        </p>
 
-    <section class="chart-block">
-      <h2>Global renewable pipeline</h2>
-      <p class="chart-note">
-        This Flourish story is the first embedded interactive on the page.
-      </p>
+        <p>
+          Global Energy Monitor’s tracking of energy facilities across the sector provides a detailed view of progress toward this critical goal.
+        </p>
+      </section>
 
-      <div class="embed-shell">
-        <div class="flourish-embed flourish-chart" data-src="story/3307082?1931971">
-          <script src="https://public.flourish.studio/resources/embed.js"></script>
-          <noscript>
-            <img src="https://public.flourish.studio/story/3307082/thumbnail" width="100%" alt="visualization" />
-          </noscript>
+      <section class="content-block figure-block">
+        <div class="figure-shell">
+          <div class="flourish-embed flourish-chart" data-src="story/3307082?1931971">
+            <script src="https://public.flourish.studio/resources/embed.js"></script>
+            <noscript>
+              <img src="https://public.flourish.studio/story/3307082/thumbnail" width="100%" alt="Global renewable pipeline visualization" />
+            </noscript>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="prose">
-      <h2>What comes next</h2>
-      <p>
-        Next, this page can add custom D3 or Observable graphics, along with brief interpretive text
-        and links to methods or source material.
-      </p>
-    </section>
-
-    <section class="chart-block">
-      <h2>Custom chart section</h2>
-      <p class="chart-note">
-        Placeholder for the Observable / D3 chart you are building.
-      </p>
-
-      <div class="embed-shell">
-        <div class="placeholder">
-          Observable / D3 chart goes here next
+      <section class="content-block figure-block">
+        <div class="figure-shell">
+          <div class="flourish-embed flourish-chart" data-src="story/3145644?1931971">
+            <script src="https://public.flourish.studio/resources/embed.js"></script>
+            <noscript>
+              <img src="https://public.flourish.studio/story/3145644/thumbnail" width="100%" alt="Renewables tripling visualization" />
+            </noscript>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
+      <section class="content-block prose">
+        <h2>Next step</h2>
+        <p>
+          This beta page can next incorporate the custom Observable / D3 chart, along with short explanatory text and links to methods or source material.
+        </p>
+      </section>
+
+      <section class="content-block figure-block">
+        <div class="figure-shell placeholder-shell">
+          <div class="placeholder">
+            Observable / D3 chart goes here next
+          </div>
+        </div>
+      </section>
+
+    </article>
   </main>
 </body>
 </html>
